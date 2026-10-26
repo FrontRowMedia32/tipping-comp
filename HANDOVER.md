@@ -2,6 +2,7 @@
 
 Written 27 October 2026 for whoever (person or AI agent) picks this project up next.
 Read this first, then `CLAUDE.md` (the house rules) and `MAINTENANCE.md` (the weekly log).
+Time spent so far is in `TIME-LOG.md`.
 
 ## 1. What this is
 
