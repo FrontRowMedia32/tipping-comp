@@ -15,6 +15,7 @@ class TIPC_Admin {
 		add_action( 'admin_menu', array( __CLASS__, 'menu' ) );
 		add_action( 'admin_init', array( __CLASS__, 'register_settings' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'assets' ) );
+		add_action( 'admin_head', array( __CLASS__, 'menu_icon_css' ) );
 		add_action( 'admin_post_tipc_sync_now', array( __CLASS__, 'handle_sync_now' ) );
 		add_action( 'admin_post_tipc_test_feed', array( __CLASS__, 'handle_test_feed' ) );
 		add_action( 'admin_post_tipc_save_games', array( __CLASS__, 'handle_save_games' ) );
@@ -30,7 +31,7 @@ class TIPC_Admin {
 	}
 
 	public static function menu() {
-		add_menu_page( 'Tipping Comp', 'Tipping Comp', self::CAP, 'tipc-settings', array( __CLASS__, 'page_settings' ), 'dashicons-awards', 58 );
+		add_menu_page( 'Tipping Comp', 'Tipping Comp', self::CAP, 'tipc-settings', array( __CLASS__, 'page_settings' ), 'none', 58 );
 		add_submenu_page( 'tipc-settings', 'Tipping Comp Settings', 'Settings', self::CAP, 'tipc-settings', array( __CLASS__, 'page_settings' ) );
 		add_submenu_page( 'tipc-settings', 'Fixtures & Results', 'Fixtures & Results', self::CAP, 'tipc-games', array( __CLASS__, 'page_games' ) );
 	}
@@ -44,6 +45,19 @@ class TIPC_Admin {
 				'sanitize_callback' => array( 'TIPC_Settings', 'sanitize' ),
 			)
 		);
+	}
+
+	/**
+	 * Front Row Media logo mark in white as the menu icon. Set as a CSS
+	 * background so WordPress doesn't recolour it to the admin grey.
+	 */
+	public static function menu_icon_css() {
+		$file = TIPC_DIR . 'assets/menu-icon.svg';
+		if ( ! file_exists( $file ) ) {
+			return;
+		}
+		$uri = 'data:image/svg+xml;base64,' . base64_encode( (string) file_get_contents( $file ) ); // phpcs:ignore
+		echo '<style id="tipc-menu-icon">#adminmenu #toplevel_page_tipc-settings .wp-menu-image{background-image:url(' . esc_attr( $uri ) . ');background-repeat:no-repeat;background-position:center;background-size:24px 24px;}#adminmenu #toplevel_page_tipc-settings .wp-menu-image:before{content:none;}</style>' . "\n";
 	}
 
 	public static function assets( $hook ) {

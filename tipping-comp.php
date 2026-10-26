@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Tipping Comp
  * Description:       Automatic footy tipping competitions for NRL, AFL, English Premier League and NFL. Fixtures and results sync themselves from live data feeds, tips lock at kickoff and leaderboards update on their own.
- * Version:           1.3.0
+ * Version:           1.3.1
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Front Row Media
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'TIPC_VERSION', '1.3.0' );
+define( 'TIPC_VERSION', '1.3.1' );
 define( 'TIPC_DB_VERSION', '2' );
 define( 'TIPC_FILE', __FILE__ );
 define( 'TIPC_DIR', plugin_dir_path( __FILE__ ) );

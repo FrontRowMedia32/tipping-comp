@@ -3,7 +3,7 @@ Contributors: frontrowmedia
 Tags: tipping, footy tipping, nrl, afl, nfl
 Requires at least: 6.0
 Requires PHP: 7.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 
 Automatic tipping competitions for NRL, AFL, the English Premier League and the NFL.
@@ -62,6 +62,9 @@ Override the CSS variables in your site CSS, for example:
 .tipc { --tipc-accent: #c8102e; --tipc-accent-ink: #fff; }
 
 == Changelog ==
+
+= 1.3.1 =
+* Admin menu icon is now the Front Row Media logo mark in white.
 
 = 1.3.0 =
 * Automatic updates from GitHub (FrontRowMedia32/tipping-comp). Turn on "Enable auto-updates" for Tipping Comp on the Plugins screen.
