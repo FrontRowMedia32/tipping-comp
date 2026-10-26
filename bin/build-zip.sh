@@ -15,7 +15,7 @@ mkdir -p "$TMP/tipping-comp" "$ROOT/dist"
 ( cd "$ROOT" && git ls-files -z 2>/dev/null || find . -type f -print0 ) \
 	| ( cd "$ROOT" && xargs -0 -I{} cp --parents {} "$TMP/tipping-comp/" )
 rm -rf "$TMP/tipping-comp/tests" "$TMP/tipping-comp/bin" "$TMP/tipping-comp/dist" \
-	"$TMP/tipping-comp/CLAUDE.md" "$TMP/tipping-comp/MAINTENANCE.md" "$TMP/tipping-comp/.gitattributes" "$TMP/tipping-comp/.gitignore"
+	"$TMP/tipping-comp/CLAUDE.md" "$TMP/tipping-comp/MAINTENANCE.md" "$TMP/tipping-comp/HANDOVER.md" "$TMP/tipping-comp/.gitattributes" "$TMP/tipping-comp/.gitignore"
 rm -f "$ROOT/dist/tipping-comp-$V.zip"
 ( cd "$TMP" && zip -qr "$ROOT/dist/tipping-comp-$V.zip" tipping-comp )
 rm -rf "$TMP"

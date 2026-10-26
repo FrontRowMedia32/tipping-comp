@@ -3,6 +3,7 @@
 Footy tipping competitions for NRL, AFL, EPL and NFL, built for Front Row Media
 (a not-for-profit) and their client sites, which run **Breakdance** on **SiteGround**.
 The plugin lives at the repository root. Contact: Nick (Front Row Media).
+New to the project? Read `HANDOVER.md` first (history, decisions, open items).
 
 ## Layout
 - `tipping-comp.php` – bootstrap; version in the header, `TIPC_VERSION` and `readme.txt` "Stable tag" (all three must match).
