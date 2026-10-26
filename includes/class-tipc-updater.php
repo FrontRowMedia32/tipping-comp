@@ -3,10 +3,12 @@
  * Updates from GitHub releases, via the Plugin Update Checker library
  * (https://github.com/YahnisElsts/plugin-update-checker, MIT licence).
  *
- * Each release on the repository carries a tipping-comp-x.y.z.zip asset.
- * WordPress then shows "update available" for Tipping Comp like any other
- * plugin, and the normal "Enable auto-updates" link on the Plugins screen
- * makes it update itself.
+ * The repository's `main` branch is the released version: when its version
+ * header is higher than the installed one, WordPress shows "update available"
+ * like any other plugin, and "Enable auto-updates" on the Plugins screen makes
+ * it update itself. Work in progress lives on other branches until approved.
+ * (A GitHub release with a tipping-comp-x.y.z.zip asset, if one is published,
+ * takes priority.)
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -48,7 +50,8 @@ class TIPC_Updater {
 			'tipping-comp'
 		);
 		self::$checker = $checker;
-		$api           = $checker->getVcsApi();
+		$checker->setBranch( 'main' );
+		$api = $checker->getVcsApi();
 		if ( $api && method_exists( $api, 'enableReleaseAssets' ) ) {
 			$api->enableReleaseAssets( '/tipping-comp-[0-9.]+\.zip$/i' );
 		}
